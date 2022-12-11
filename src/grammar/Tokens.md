@@ -42,7 +42,11 @@ String literals are any characters surrounded by a pair of `"` or `'`. Any utf-8
 
 ### 2.3 Keywords
 
-Work in progress...
+Here is a list of all current keywords.
+```markdown
+where until end if then else elsif case in for do
+assert return break continue loop class def begin
+```
 
 ### 2.4 Identifier
 
@@ -54,4 +58,30 @@ A valid identifier is a sequence of characters that satisfies the following cond
 
 ### 2.5 Operators
 
-Work in progress...
+Here is a list of all operators.
+
+|Operator|Meaning|Example| Precedence (left and right) |
+|:---|:---|:---|:---|
+|not| logic not | `not false` | 101(prefix) |
+|$| function call or index | `f$()` `list$[0]`| 100(postfix) |
+|.| access member | `list.len$()` | 19,20 |
+|**| power | `2**3` | 17,18 |
+|*| multiply | `2*3` | 15,16 |
+|//| integer division  | `7//3` | 15,16 |
+|/| division | `7/3` | 15,16 |
+|%| modular | `5%2` | 15,16 |
+|+| addiction | `1+2`| 13,14 |
+|-| subtract or negative value | `1-2` `-2` | 101(prefix) 13,14(infix)|
+|>| greater than | `5>4` | 11,12 |
+|>=| greater than or equal to | `4>=3` | 11,12 |
+|<| less than | `2<6` | 11,12 |
+|<=| less than or equal to | `5<=5` | 11,12 |
+|==| equal to | `3==3` | 11,12 |
+|<>| not equal to | `5<>4` | 11,12 |
+|and| logic and | `true and false` | 9, 10|
+|or| logic or | `true or false` | 7,8 |
+|..| range | `1..10`| 5,6 |
+|,| create a tuple | `1,2,3` | 3,4 |
+|=| assign value to variable | `a=5`| 2,1|
+|:| N/A | N/A | N/A |
+
