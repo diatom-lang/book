@@ -52,6 +52,13 @@
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         {{/if}}
+
+        <!-- Diatom Playground -->
+        <script type="module">
+            import init, {get_version, compile} from "https://diatom-lang.github.io/diatom-playground/pkg/diatom_playground.js";
+            init().then(()=>{});
+            window.compile = compile;
+        </script>
     </head>
     <body>
         <!-- Provide site root to javascript -->
