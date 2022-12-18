@@ -28,43 +28,19 @@ function playground_text(playground) {
         ]);
     }
 
-    // updates the visibility of play button based on `no_run` class and
-    // used crates vs ones available on http://play.rust-lang.org
-    function update_play_button(pre_block, playground_crates) {
-        var play_button = pre_block.querySelector(".play-button");
-
-        // skip if code is `no_run`
-        if (pre_block.querySelector('code').classList.contains("no_run")) {
-            play_button.classList.add("hidden");
-            return;
-        }
-
-        // get list of `extern crate`'s from snippet
-        var txt = playground_text(pre_block);
-        var re = /extern\s+crate\s+([a-zA-Z_0-9]+)\s*;/g;
-        var snippet_crates = [];
-        var item;
-        while (item = re.exec(txt)) {
-            snippet_crates.push(item[1]);
-        }
-
-        // check if all used crates are available on play.rust-lang.org
-        var all_available = snippet_crates.every(function (elem) {
-            return playground_crates.indexOf(elem) > -1;
-        });
-
-        if (all_available) {
-            play_button.classList.remove("hidden");
-        } else {
-            play_button.classList.add("hidden");
-        }
-    }
-
     function run_diatom_code(code_block) {
-        let text = playground_text(code_block);
+        var result_block = code_block.querySelector(".result");
+        if (!result_block) {
+            result_block = document.createElement('code');
+            result_block.className = 'result hljs language-bash';
 
-        let url = "https://diatom-lang.github.io/diatom-playground/?code=" + encodeURIComponent(text);
-        window.open(url, '_blank').focus();
+            code_block.append(result_block);
+        }
+
+        let text = playground_text(code_block);
+        result_block.innerText = "Running...";
+
+        result_block.innerHTML = window.compile(text);
     }
 
     // Syntax highlighting Configuration
