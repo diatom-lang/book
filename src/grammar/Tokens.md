@@ -62,9 +62,11 @@ Here is a list of all operators.
 
 |Operator|Meaning|Example| Precedence (left and right) |
 |:---|:---|:---|:---|
-|not| logic not | `not false` | 101(prefix) |
-|$| function call or index | `f$()` `list$[0]`| 100(postfix) |
-|.| access member | `list.len$()` | 19,20 |
+|.| access member | `list.len$()` | 21,22 |
+|not| logic not | `not false` | 19(prefix) |
+|$()| function call | `f$()` | 20(postfix) |
+|$[]| index array| `list$[0]`| 20(postfix) |
+|${}| data constructor | `Just${1}`| 20(postfix) |
 |**| power | `2**3` | 17,18 |
 |*| multiply | `2*3` | 15,16 |
 |//| integer division  | `7//3` | 15,16 |

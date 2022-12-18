@@ -7,28 +7,34 @@ Diatom is an expression based language, which means almost everything is an expr
 Arithmetic expressions are expression combined by an infix or prefix or postfix operator.
 
 ```diatom
- a = (1+3)**3
- a = a // 10
- a
+a = 1
+a // 10
+Just${1}
+[1 2 3]$[2] -- 2
+[1 2 3 4].len$()
+1,2,3 -- tuple
 
 ```
 
-## 2 Function declaration
+## 2 Lambda Expression
 
-Function declaration contains `def` + `name(optional)` + `( <parameters> )` + `body` + `(optional) where <binds>` + `end`. This expression always return the function it self.
-
-Note: If the name is omitted, then it is considered as a lambda expression.
+Lambda expression contains `fn` + `<parameters>` + `=` + `<expression>`. Parameters are separated by space.
 
 Examples:
 ```diatom
-def f(a b c)
-    a + b + c 
-end
+fn x y z = x + y + z
 
-def f ()
-    g$()
-where
-    g: def () 1 end
+-- To use multiple expression/statements
+-- Group them in a block expression
+fn x y = begin
+    if x > 10 then
+        return y
+    end
+    until x > 10 do
+        y = y + x
+        x = x + 1
+    end
+    y
 end
 
 ```
@@ -109,6 +115,29 @@ The following values are considered as expressions.
 
 true false -- boolean value
 
-nil
+() -- unit type value
+
+```
+
+## 7 Case Expression
+
+Case expression is used to perform pattern matching.
+
+The grammar is `case` + `<expression>` + `of` + `<pattern> (if <guard expression>)? => <expression>`\* + `end`.
+
+Pattern can be 
+- Or form: `<pattern> | <pattern>`
+- Tuple: `<pattern> , <pattern>`
+- Match data: `<constructor>${ <variable> <variable> ... }`
+- Constant Literal: `1 "str" true ...`
+- Bind: `<variable name> @ pattern`
+
+Priority: `()` > `@` > `,` > `|`
+Examples:
+```diatom
+case Just${1} of 
+    x @(Just${1} | Just${_}) => true
+    Nothing => false
+end
 
 ```

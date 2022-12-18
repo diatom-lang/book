@@ -71,8 +71,8 @@ function playground_text(playground) {
     hljs.registerLanguage('diatom', () => ({
         case_insensitive: false,
         keywords: {
-            keyword: 'where until end if then else elsif case in for do assert return break continue loop class def begin and or not',
-            literal: 'false true nil self',
+            keyword: 'where until end if then else elsif case of in for do assert return break continue loop data def fn begin and or not fn require',
+            literal: 'false true self',
         },
         contains: [
             hljs.QUOTE_STRING_MODE,
