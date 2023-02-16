@@ -8,19 +8,22 @@ Lambda expression is used as an anonymous function.
 
 Examples:
 ```diatom
-fn x y z = x + y + z
+-- lambda takes a single expression
+add3 = 
+    fn a b c = a + b + c
+println$( add3$(1, 2, 3) )
 
 -- To use multiple expression/statements
 -- Group them in a block expression
-fn x y = begin
-    if x > 10 then
-        return y
+(fn x = begin
+    loop 
+        if x == 0 then
+            break
+        else 
+            x = x//2
+        end
     end
-    until x > 10 do
-        y = y + x
-        x = x + 1
-    end
-    y
-end
+    println$('loop finished')
+end) $(Int::MAX) -- Directly call lambda
 ```
 

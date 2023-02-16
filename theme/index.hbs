@@ -55,9 +55,9 @@
 
         <!-- Diatom Playground -->
         <script type="module">
-            import init, {get_version, compile} from "https://diatom-lang.github.io/diatom-playground/pkg/diatom_playground.js";
+            import init, {get_version, exec} from "https://diatom-lang.github.io/diatom-playground/pkg/diatom_playground.js";
             init().then(()=>{});
-            window.compile = compile;
+            window.exec = exec;
         </script>
     </head>
     <body>
