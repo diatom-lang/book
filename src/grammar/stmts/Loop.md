@@ -16,7 +16,6 @@ There are three types of loops in diatom:
 ## Examples
 ```diatom
 a = 0
-
 loop 
     if a > 5 then
         break
@@ -24,12 +23,17 @@ loop
         a = a + 1
     end
 end
+println$(a)
 
+a = 0
 until a > 5 do
     a = a + 1
 end
+println$(a)
 
-for i,v in (1..10).iter$().enumerate$() do
-    a = a + i + v*a
+a = 0
+for _ in 0..6 do
+    a = a + 1
 end
+println$(a)
 ```

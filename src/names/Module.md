@@ -1,4 +1,4 @@
-# Module
+# Module (Unstable Feature)
 
 Diatom can load external diatom source code files as modules.
 

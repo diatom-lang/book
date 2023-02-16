@@ -1,4 +1,4 @@
-# Require Expression
+# Require Expression (Not Implemented)
 
 Diatom allows to import another file with require expression. This expression will return a module contains all variables after executing that file. This expression does not introduce any variables to global scope.
 

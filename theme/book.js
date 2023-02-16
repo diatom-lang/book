@@ -38,16 +38,18 @@ function playground_text(playground) {
         }
 
         let text = playground_text(code_block);
-        result_block.innerText = "Running...";
-
-        result_block.innerHTML = window.compile(text);
+        let callback = function (s) {
+            result_block.innerHTML += s;
+        };
+        let result = window.exec(text, callback);
+        result_block.innerHTML += result;
     }
 
     // Syntax highlighting Configuration
     hljs.registerLanguage('diatom', () => ({
         case_insensitive: false,
         keywords: {
-            keyword: 'where until end if then else elsif case of in for do assert return break continue loop data def fn begin and or not fn require',
+            keyword: 'until end if then else elsif in for do return break continue loop data def fn begin and or not fn is require',
             literal: 'false true self',
         },
         contains: [

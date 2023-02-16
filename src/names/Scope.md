@@ -12,15 +12,15 @@ Diatom disallows local variable to shadow outside ones. Names will always be res
 
 For example,
 ```diatom
-a = []
-
-def f() =
-    a.push$(2)
+a = 1
+def f x =
+    a = x
 end
+f$(2)
 
-f$()
+println$('a =', a)
 ```
-`a` will have value `[2]` after execution.
+`a` will have value `2` after execution.
 
 ## Local Scope
 
@@ -28,5 +28,14 @@ The following grammars enable local scope:
 - Block: `begin` ... `end`
 - Function: `def` ... `end`
 - Lambda: `fn`
+- Loop/For: `loop` ... `end`, `for` ... `end`, `until` .. `do` ... `end`
 
 Variable declared in local scope is not available in outside scopes.
+
+The following code will **NOT** work.
+```diatom
+begin
+    a = 10
+end
+println$(a)
+```

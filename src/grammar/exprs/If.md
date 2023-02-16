@@ -10,18 +10,18 @@ Condition code execution.
 
 ## Examples
 ```diatom
-if true then
-    1
-end 
-
-a = 5
-
-if a > 5 then 
-    1
-elsif a > 4 then 
-    -1
-else 
-    0
+def test x =
+    if x > 0 then
+        println$('positive')
+    elsif x == 0 then 
+        println$('zero')
+    else
+        println$('negative')
+    end
 end
+
+test$(1)
+test$(0)
+test$(-1)
 ```
 

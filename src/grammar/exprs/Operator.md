@@ -10,12 +10,17 @@ For operators and precedences, see [_Operators_].
 
 ## Examples
 ```diatom
-a = 1
-a // 10
-Just${1}
-[1 2 3]$[2] -- 2
-[1 2 3 4].len$()
-1,2,3 -- tuple
+a = 12345
+
+println$(
+    a // 3,
+    a > 12344,
+    a + 5,
+    a ** 4,
+    a - -2,
+    a.float$(),
+    a / Float::INF
+)
 ```
 
 [_Operators_]: ../Tokens.md
