@@ -4,3 +4,14 @@ language = "en"
 multilingual = false
 src = "src"
 title = "The Diatom Reference"
+
+[output.html]
+default-theme = "light"
+curly-quotes = false
+git-repository-url = "https://github.com/diatom-lang/diatom"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/diatom-lang/reference/edit/master/{path}"
+
+[output.html.fold]
+enable = true
+level = 1

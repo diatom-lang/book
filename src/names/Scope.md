@@ -29,6 +29,7 @@ The following grammars enable local scope:
 - Function: `def` ... `end`
 - Lambda: `fn`
 - Loop/For: `loop` ... `end`, `for` ... `end`, `until` .. `do` ... `end`
+- If: `if` .. `then` ... `else` ... `end`
 
 Variable declared in local scope is not available in outside scopes.
 
