@@ -1,7 +1,5 @@
 # The Diatom Reference
 
-**NOTE: This book is working in progress...**
-
 This book is the reference for **the Diatom Programming Language**.
 
 ## About 
