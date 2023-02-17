@@ -9,9 +9,9 @@ A tuple with 0 items, has only one possible value `()`. This value is implicitly
 
 ### Examples
 ```diatom
-def return_unit = end
+def ret_unit = end
 
-println$( return_unit$() )
+println$( ret_unit$() )
 
 value = begin
     -- statement always return ()

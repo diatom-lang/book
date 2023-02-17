@@ -59,3 +59,4 @@
         - [List::insert](stdlib/list/insert.md)
         - [List::remove](stdlib/list/remove.md)
         - [List::iter](stdlib/list/iter.md)
+    - [String]()

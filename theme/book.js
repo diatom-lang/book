@@ -48,12 +48,34 @@ function playground_text(playground) {
     // Syntax highlighting Configuration
     hljs.registerLanguage('diatom', () => ({
         case_insensitive: false,
-        keywords: {
-            keyword: 'until end if then else elsif in for do return break continue loop data def fn begin and or not fn is require',
-            literal: 'false true self',
-        },
+        keywords: {},
         contains: [
-            hljs.QUOTE_STRING_MODE,
+            {
+                className: 'keyword',
+                begin: 'until|end|if|then|else|elsif|in|for|do|return|break|continue|loop|data|def|fn|begin|and|or|not|fn|is|require',
+            },
+            {
+                className: 'title',
+                begin: 'println|print|assert|panic|unreachable'
+            },
+            {
+                className: 'literal',
+                begin: 'false|true'
+            },
+            {
+                className: 'Identifier',
+                begin: "[_a-zA-Z]{1}[_0-9a-zA-Z]*"
+            },
+            {
+              className: 'string',
+              begin: '"', end: '"',
+              contains: [{begin: '\\\\.'}],
+            },
+            {
+              className: 'string',
+              begin: '\'', end: '\'',
+              contains: [{begin: '\\\\.'}],
+            },
             hljs.COMMENT(
                 '--', // begin
                 '\n', // end
@@ -64,11 +86,10 @@ function playground_text(playground) {
             },
             {
                 className: "number",
-                begin: "[0-9][_0-9]*[\\.]{0,1}((e|E)(|\\+|\\-)[_0-9]+){0,1}"
-            },
-            {
-                className: "function",
-                begin: "\\+|\\-|\\*|\\*\\*|\\/|%|<>|<|>|<=|=>|==|=|\\$|\\.\\."
+                begin: "([0-9][_0-9]*(\\.[_0-9]+){0,1}([Ee][\\+\\-]{0,1}[0-9_]*){0,1})"
+            },{
+                className: 'symbol',
+                begin: "<\\-|=|\\$|\\.\\.|::",
             }
         ]
     }))
