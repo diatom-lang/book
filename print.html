@@ -1,0 +1,1226 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Diatom Reference</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Diatom Playground -->
+        <script type="module">
+            import init, {get_version, exec} from "https://diatom-lang.github.io/diatom-playground/pkg/diatom_playground.js";
+            init().then(()=>{});
+            window.exec = exec;
+        </script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="Overview.html">The Diatom Reference</a></li><li class="chapter-item expanded "><a href="grammar/Overview.html"><strong aria-hidden="true">1.</strong> Grammar</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="grammar/Tokens.html"><strong aria-hidden="true">1.1.</strong> Tokens</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="grammar/tokens/Identifier.html"><strong aria-hidden="true">1.1.1.</strong> Identifier</a></li><li class="chapter-item "><a href="grammar/tokens/Keyword.html"><strong aria-hidden="true">1.1.2.</strong> Keyword</a></li><li class="chapter-item "><a href="grammar/tokens/Number.html"><strong aria-hidden="true">1.1.3.</strong> Numeric Literal</a></li><li class="chapter-item "><a href="grammar/tokens/String.html"><strong aria-hidden="true">1.1.4.</strong> String Literal</a></li><li class="chapter-item "><a href="grammar/tokens/Operator.html"><strong aria-hidden="true">1.1.5.</strong> Operator</a></li><li class="chapter-item "><a href="grammar/tokens/Comment.html"><strong aria-hidden="true">1.1.6.</strong> Comment</a></li></ol></li><li class="chapter-item "><a href="grammar/Expressions.html"><strong aria-hidden="true">1.2.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="grammar/exprs/Constant.html"><strong aria-hidden="true">1.2.1.</strong> Constant Expression</a></li><li class="chapter-item "><a href="grammar/exprs/Operator.html"><strong aria-hidden="true">1.2.2.</strong> Operator Expression</a></li><li class="chapter-item "><a href="grammar/exprs/If.html"><strong aria-hidden="true">1.2.3.</strong> If Expression</a></li><li class="chapter-item "><a href="grammar/exprs/Block.html"><strong aria-hidden="true">1.2.4.</strong> Block Expression</a></li><li class="chapter-item "><a href="grammar/exprs/Lambda.html"><strong aria-hidden="true">1.2.5.</strong> Lambda Expression</a></li><li class="chapter-item "><a href="grammar/exprs/Require.html"><strong aria-hidden="true">1.2.6.</strong> Require Expression</a></li></ol></li><li class="chapter-item "><a href="grammar/Statements.html"><strong aria-hidden="true">1.3.</strong> Statements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="grammar/stmts/Loop.html"><strong aria-hidden="true">1.3.1.</strong> Loop Statement</a></li><li class="chapter-item "><a href="grammar/stmts/Function.html"><strong aria-hidden="true">1.3.2.</strong> Function Statement</a></li><li class="chapter-item "><a href="grammar/stmts/Flow.html"><strong aria-hidden="true">1.3.3.</strong> Flow Control Statement</a></li></ol></li><li class="chapter-item "><a href="grammar/table/Overview.html"><strong aria-hidden="true">1.4.</strong> Table & Meta Table</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="grammar/table/Member.html"><strong aria-hidden="true">1.4.1.</strong> Member Resolution</a></li><li class="chapter-item "><a href="grammar/table/Meta.html"><strong aria-hidden="true">1.4.2.</strong> Meta Table</a></li><li class="chapter-item "><a href="grammar/table/Method.html"><strong aria-hidden="true">1.4.3.</strong> Method Call</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="names/Overview.html"><strong aria-hidden="true">2.</strong> Names</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="names/Scope.html"><strong aria-hidden="true">2.1.</strong> Scope</a></li><li class="chapter-item "><a href="names/Binding.html"><strong aria-hidden="true">2.2.</strong> Binding and Closure</a></li><li class="chapter-item "><a href="names/Module.html"><strong aria-hidden="true">2.3.</strong> Module System</a></li></ol></li><li class="chapter-item expanded "><a href="stdlib/Overview.html"><strong aria-hidden="true">3.</strong> Standard Library</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/built-in/Overview.html"><strong aria-hidden="true">3.1.</strong> Built-in Methods</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/built-in/println.html"><strong aria-hidden="true">3.1.1.</strong> println</a></li><li class="chapter-item "><a href="stdlib/built-in/print.html"><strong aria-hidden="true">3.1.2.</strong> print</a></li><li class="chapter-item "><a href="stdlib/built-in/assert.html"><strong aria-hidden="true">3.1.3.</strong> assert</a></li><li class="chapter-item "><a href="stdlib/built-in/panic.html"><strong aria-hidden="true">3.1.4.</strong> panic</a></li><li class="chapter-item "><a href="stdlib/built-in/unreachable.html"><strong aria-hidden="true">3.1.5.</strong> unreachable</a></li><li class="chapter-item "><a href="stdlib/built-in/todo.html"><strong aria-hidden="true">3.1.6.</strong> todo</a></li></ol></li><li class="chapter-item "><a href="stdlib/Unit.html"><strong aria-hidden="true">3.2.</strong> Unit</a></li><li class="chapter-item "><a href="stdlib/int/Overview.html"><strong aria-hidden="true">3.3.</strong> Int</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/int/MAX.html"><strong aria-hidden="true">3.3.1.</strong> Int::MAX</a></li><li class="chapter-item "><a href="stdlib/int/MIN.html"><strong aria-hidden="true">3.3.2.</strong> Int::MIN</a></li><li class="chapter-item "><a href="stdlib/int/abs.html"><strong aria-hidden="true">3.3.3.</strong> Int::abs</a></li><li class="chapter-item "><a href="stdlib/int/float.html"><strong aria-hidden="true">3.3.4.</strong> Int::float</a></li></ol></li><li class="chapter-item "><a href="stdlib/float/Overview.html"><strong aria-hidden="true">3.4.</strong> Float</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/float/MAX.html"><strong aria-hidden="true">3.4.1.</strong> Float::MAX</a></li><li class="chapter-item "><a href="stdlib/float/MIN.html"><strong aria-hidden="true">3.4.2.</strong> Float::MIN</a></li><li class="chapter-item "><a href="stdlib/float/INF.html"><strong aria-hidden="true">3.4.3.</strong> Float::INF</a></li><li class="chapter-item "><a href="stdlib/float/NEG_INF.html"><strong aria-hidden="true">3.4.4.</strong> Float::NEG_INF</a></li><li class="chapter-item "><a href="stdlib/float/NAN.html"><strong aria-hidden="true">3.4.5.</strong> Float::NAN</a></li><li class="chapter-item "><a href="stdlib/float/floor.html"><strong aria-hidden="true">3.4.6.</strong> Float::floor</a></li><li class="chapter-item "><a href="stdlib/float/ceil.html"><strong aria-hidden="true">3.4.7.</strong> Float::ceil</a></li><li class="chapter-item "><a href="stdlib/float/round.html"><strong aria-hidden="true">3.4.8.</strong> Float::round</a></li><li class="chapter-item "><a href="stdlib/float/int.html"><strong aria-hidden="true">3.4.9.</strong> Float::int</a></li><li class="chapter-item "><a href="stdlib/float/abs.html"><strong aria-hidden="true">3.4.10.</strong> Float::abs</a></li><li class="chapter-item "><a href="stdlib/float/is_nan.html"><strong aria-hidden="true">3.4.11.</strong> Float::is_nan</a></li><li class="chapter-item "><a href="stdlib/float/is_inf.html"><strong aria-hidden="true">3.4.12.</strong> Float::is_inf</a></li></ol></li><li class="chapter-item "><a href="stdlib/Bool.html"><strong aria-hidden="true">3.5.</strong> Bool</a></li><li class="chapter-item "><a href="stdlib/Tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li class="chapter-item "><a href="stdlib/list/Overview.html"><strong aria-hidden="true">3.7.</strong> List</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/list/len.html"><strong aria-hidden="true">3.7.1.</strong> List::len</a></li><li class="chapter-item "><a href="stdlib/list/clear.html"><strong aria-hidden="true">3.7.2.</strong> List::clear</a></li><li class="chapter-item "><a href="stdlib/list/reverse.html"><strong aria-hidden="true">3.7.3.</strong> List::reverse</a></li><li class="chapter-item "><a href="stdlib/list/append.html"><strong aria-hidden="true">3.7.4.</strong> List::append</a></li><li class="chapter-item "><a href="stdlib/list/insert.html"><strong aria-hidden="true">3.7.5.</strong> List::insert</a></li><li class="chapter-item "><a href="stdlib/list/remove.html"><strong aria-hidden="true">3.7.6.</strong> List::remove</a></li><li class="chapter-item "><a href="stdlib/list/iter.html"><strong aria-hidden="true">3.7.7.</strong> List::iter</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.8.</strong> String</div></li><li class="chapter-item "><a href="stdlib/iter/Overview.html"><strong aria-hidden="true">3.9.</strong> Iter</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/iter/all.html"><strong aria-hidden="true">3.9.1.</strong> Iter::all</a></li><li class="chapter-item "><a href="stdlib/iter/any.html"><strong aria-hidden="true">3.9.2.</strong> Iter::any</a></li><li class="chapter-item "><a href="stdlib/iter/collect.html"><strong aria-hidden="true">3.9.3.</strong> Iter::collect</a></li><li class="chapter-item "><a href="stdlib/iter/count.html"><strong aria-hidden="true">3.9.4.</strong> Iter::count</a></li><li class="chapter-item "><a href="stdlib/iter/sum.html"><strong aria-hidden="true">3.9.5.</strong> Iter::sum</a></li><li class="chapter-item "><a href="stdlib/iter/max.html"><strong aria-hidden="true">3.9.6.</strong> Iter::max</a></li><li class="chapter-item "><a href="stdlib/iter/min.html"><strong aria-hidden="true">3.9.7.</strong> Iter::min</a></li><li class="chapter-item "><a href="stdlib/iter/reduce.html"><strong aria-hidden="true">3.9.8.</strong> Iter::reduce</a></li><li class="chapter-item "><a href="stdlib/iter/for_each.html"><strong aria-hidden="true">3.9.9.</strong> Iter::for_each</a></li><li class="chapter-item "><a href="stdlib/iter/fold.html"><strong aria-hidden="true">3.9.10.</strong> Iter::fold</a></li><li class="chapter-item "><a href="stdlib/iter/map.html"><strong aria-hidden="true">3.9.11.</strong> Iter::map</a></li><li class="chapter-item "><a href="stdlib/iter/filter.html"><strong aria-hidden="true">3.9.12.</strong> Iter::filter</a></li><li class="chapter-item "><a href="stdlib/iter/skip.html"><strong aria-hidden="true">3.9.13.</strong> Iter::skip</a></li><li class="chapter-item "><a href="stdlib/iter/take.html"><strong aria-hidden="true">3.9.14.</strong> Iter::take</a></li><li class="chapter-item "><a href="stdlib/iter/zip.html"><strong aria-hidden="true">3.9.15.</strong> Iter::zip</a></li><li class="chapter-item "><a href="stdlib/iter/step_by.html"><strong aria-hidden="true">3.9.16.</strong> Iter::step_by</a></li><li class="chapter-item "><a href="stdlib/iter/take_until.html"><strong aria-hidden="true">3.9.17.</strong> Iter::take_until</a></li><li class="chapter-item "><a href="stdlib/iter/enum.html"><strong aria-hidden="true">3.9.18.</strong> Iter::enum</a></li></ol></li><li class="chapter-item "><a href="stdlib/gc/Overview.html"><strong aria-hidden="true">3.10.</strong> Gc</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="stdlib/gc/collect.html"><strong aria-hidden="true">3.10.1.</strong> Gc::collect</a></li><li class="chapter-item "><a href="stdlib/gc/pause.html"><strong aria-hidden="true">3.10.2.</strong> Gc::pause</a></li><li class="chapter-item "><a href="stdlib/gc/resume.html"><strong aria-hidden="true">3.10.3.</strong> Gc::resume</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Diatom Reference</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/diatom-lang/diatom" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="the-diatom-reference"><a class="header" href="#the-diatom-reference">The Diatom Reference</a></h1>
+<p>This book is the reference for <strong>the Diatom Programming Language</strong>.</p>
+<h2 id="about"><a class="header" href="#about">About</a></h2>
+<p>Diatom is an <a href="https://en.wikipedia.org/wiki/Scripting_language">embedded scripting language</a> aiming to make scripting easy, secure and maintainable without compromised with speed.</p>
+<h2 id="try-diatom"><a class="header" href="#try-diatom">Try Diatom</a></h2>
+<p>Use our online <a href="https://diatom-lang.github.io/diatom-playground/">playground</a> to try diatom without install anything.</p>
+<h2 id="get-diatom"><a class="header" href="#get-diatom">Get Diatom</a></h2>
+<p>Diatom is available at <a href="https://crates.io/crates/diatom">crates.io</a>.</p>
+<p>The latest API documentation is available <a href="https://diatom-lang.github.io/diatom/">here</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="grammar"><a class="header" href="#grammar">Grammar</a></h1>
+<p>This chapter is about the grammar of diatom.</p>
+<h2 id="general-grammar-rules"><a class="header" href="#general-grammar-rules">General Grammar Rules</a></h2>
+<p>Diatom's grammar is design around the following concept in mind:</p>
+<ul>
+<li><strong>No delimiter</strong>: Statements and Expressions does not require <code>newline</code> or <code>;</code> to be separated from each other. That means <code>a = 1 b = 2</code> is a perfectly fine line of code.</li>
+<li><strong>Fewer Punctuations</strong>: Diatom significantly reduces the need of redundant punctuations like <code>() {}</code> pairs. Blocks uses keywords instead of <code>{}</code> and tuples does not need to be surrounded by <code>()</code>. Instead just write <code>a,b</code> is enough to make a tuple. <code>[1 2 3]</code> is a good list in diatom, no comma is required or allowed.</li>
+<li><strong>Format independent syntax</strong>: Diatom does not use so called significant whitespace in its grammar. You are free to format you code without changing its meanings. To prevent unintended behaviors, most of the grammar requires some kind of terminator like <code>if ... then ... end</code> so user will not accidentally write to wrong scopes.</li>
+<li><strong>Expression based</strong>: Every expression( including block ) has a return value. Simply put an expression at the end of the block will automatically return its value. For example, <code>fn x = x + 1</code> will just return <code>x + 1</code>, no <code>return</code> is needed.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tokens"><a class="header" href="#tokens">Tokens</a></h1>
+<p>Tokens are the result of lexical analysis performed by the compiler.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="identifier"><a class="header" href="#identifier">Identifier</a></h1>
+<blockquote>
+<p><strong>Syntax</strong><br />
+Identifier:  [_a-zA-Z][_0-9a-zA-Z]*</p>
+<p><strong>Note</strong>: Unicode identifier is allowed but discouraged.</p>
+</blockquote>
+<p>A valid identifier is a sequence of characters that satisfies the following conditions:</p>
+<ul>
+<li>The sequence must not start with <code>'0'..'9'</code>.</li>
+<li>The sequence must not contains whitespace characters, namely <code>' ', '\r', '\n', '\t'</code> .</li>
+<li>The sequence must not contains any ascii symbols like <code>?#$@%...</code> .</li>
+<li>Unicode characters may be used. For example, <code>🐱🐶</code> is valid identifier.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="keywords"><a class="header" href="#keywords">Keywords</a></h1>
+<blockquote>
+<p><strong>Syntax</strong><br />
+Keyword:<br />
+&quot;until&quot;<br />
+| &quot;end&quot;<br />
+| &quot;if&quot;<br />
+| &quot;then&quot;<br />
+| &quot;else&quot;<br />
+| &quot;elsif&quot;<br />
+| &quot;in&quot;<br />
+| &quot;for&quot;<br />
+| &quot;do&quot;<br />
+| &quot;return&quot;<br />
+| &quot;break&quot;<br />
+| &quot;continue&quot;<br />
+| &quot;loop&quot;<br />
+| &quot;def&quot;<br />
+| &quot;fn&quot;<br />
+| &quot;begin&quot;<br />
+| &quot;and&quot;<br />
+| &quot;or&quot;<br />
+| &quot;not&quot;<br />
+| &quot;fn&quot;<br />
+| &quot;is&quot;
+| &quot;require&quot;</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="numeric-literal"><a class="header" href="#numeric-literal">Numeric Literal</a></h1>
+<blockquote>
+<p><strong>Syntax</strong><br />
+Number:<br />
+( [ 0 ] [ Xx ] [ _0-9a-fA-F ]+)<br />
+|( [ 0 ] [ Bb ] [ _0-1 ]+)<br />
+|( [ 0 ] [ Oo ] [ _0-7 ]+)<br />
+|( [ 0-9 ] [ _0-9 ]* ( \.[ _0-9 ]+ ){0,1} ( [ Ee ] [ \+\- ]{0,1} [ 0-9_ ]* ){0, 1} )</p>
+</blockquote>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Literals*</th><th style="text-align: left">Example</th><th style="text-align: left">Exponentiation</th></tr></thead><tbody>
+<tr><td style="text-align: left">Decimal integer</td><td style="text-align: left"><code>123_456</code></td><td style="text-align: left">N/A</td></tr>
+<tr><td style="text-align: left">Hex integer</td><td style="text-align: left"><code>0xff1</code></td><td style="text-align: left">N/A</td></tr>
+<tr><td style="text-align: left">Octal integer</td><td style="text-align: left"><code>0o72</code></td><td style="text-align: left">N/A</td></tr>
+<tr><td style="text-align: left">Binary integer</td><td style="text-align: left"><code>0b1111_0100</code></td><td style="text-align: left">N/A</td></tr>
+<tr><td style="text-align: left">Floating point</td><td style="text-align: left"><code>12.23e-5</code></td><td style="text-align: left">Optional</td></tr>
+</tbody></table>
+</div>
+<p>*: All number literals allow _ as a visual separator: <code>1_234.0E+18</code><br />
+*: All characters are case insensitive.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="string-literal"><a class="header" href="#string-literal">String Literal</a></h1>
+<p>String literals are any characters surrounded by a pair of <code>&quot;</code> or <code>'</code>. Any utf-8 characters may be included. To use special characters, you may put a <code>\</code> before that escape sequence. Here is a list of all escape sequence.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+String:<br />
+' ( [^\\] | EscapeSequence | \\' )* '<br />
+| &quot; ( [^\\] | EscapeSequence | \\&quot; )* &quot;</p>
+<p>EscapeSequence:<br />
+\\x [0-7]{2}<br />
+| \\u [0-9a-fA-F]{4}<br />
+| \\U [0-9a-fA-F]{8}<br />
+| \\r | \\n | \\t | \\</p>
+</blockquote>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Escapes</th><th style="text-align: left">Character</th></tr></thead><tbody>
+<tr><td style="text-align: left"><code>\\</code></td><td style="text-align: left">backslash</td></tr>
+<tr><td style="text-align: left"><code>\r</code></td><td style="text-align: left">Newline</td></tr>
+<tr><td style="text-align: left"><code>\n</code></td><td style="text-align: left">Carriage return</td></tr>
+<tr><td style="text-align: left"><code>\t</code></td><td style="text-align: left">Tab</td></tr>
+<tr><td style="text-align: left"><code>\x41</code></td><td style="text-align: left">7 bit character code (exactly 2 hex numbers*)</td></tr>
+<tr><td style="text-align: left"><code>\u00E9</code></td><td style="text-align: left">16bit unicode escape(exactly 4 hex numbers*)</td></tr>
+<tr><td style="text-align: left"><code>\U000000E9</code></td><td style="text-align: left">16bit unicode escape(exactly 8 hex numbers*)</td></tr>
+</tbody></table>
+</div>
+<p>*: All hex numbers ignore case. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="operators"><a class="header" href="#operators">Operators</a></h1>
+<blockquote>
+<p><strong>Syntax</strong>:
+Operator:<br />
+<code>&lt;singular operator&gt;</code><br />
+| $ \( <code>&lt;expression&gt;</code>* \)<br />
+| $ \[ <code>&lt;expression&gt;</code>* \]<br />
+| $ \{ (<code>&lt;expression&gt;</code>*) | (<code>&lt;identifier&gt;</code> : <code>&lt;expression&gt;</code>)* \}</p>
+</blockquote>
+<p>Here is a list of all operators.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Operator</th><th style="text-align: left">Meaning</th><th style="text-align: left">Example</th><th style="text-align: left">Precedence (left and right)</th></tr></thead><tbody>
+<tr><td style="text-align: left">.</td><td style="text-align: left">access member</td><td style="text-align: left"><code>[1,2].len$()</code></td><td style="text-align: left">23,24</td></tr>
+<tr><td style="text-align: left">::</td><td style="text-align: left">access member</td><td style="text-align: left"><code>List::len$([1,2])</code></td><td style="text-align: left">23,24</td></tr>
+<tr><td style="text-align: left">&lt;-</td><td style="text-align: left">set meta-table</td><td style="text-align: left"><code>{} &lt;- MetaTable</code></td><td style="text-align: left">21,22</td></tr>
+<tr><td style="text-align: left">not</td><td style="text-align: left">logic not</td><td style="text-align: left"><code>not false</code></td><td style="text-align: left">19 (prefix)</td></tr>
+<tr><td style="text-align: left">$()</td><td style="text-align: left">function call</td><td style="text-align: left"><code>f$()</code></td><td style="text-align: left">20 (postfix)</td></tr>
+<tr><td style="text-align: left">$[]</td><td style="text-align: left">index array</td><td style="text-align: left"><code>list$[0]</code></td><td style="text-align: left">20 (postfix)</td></tr>
+<tr><td style="text-align: left">${}</td><td style="text-align: left">data constructor</td><td style="text-align: left"><code>Just${1}</code></td><td style="text-align: left">20 (postfix)</td></tr>
+<tr><td style="text-align: left">**</td><td style="text-align: left">power</td><td style="text-align: left"><code>2**3</code></td><td style="text-align: left">17,18</td></tr>
+<tr><td style="text-align: left">*</td><td style="text-align: left">multiply</td><td style="text-align: left"><code>2*3</code></td><td style="text-align: left">15,16</td></tr>
+<tr><td style="text-align: left">//</td><td style="text-align: left">integer division</td><td style="text-align: left"><code>7//3</code></td><td style="text-align: left">15,16</td></tr>
+<tr><td style="text-align: left">/</td><td style="text-align: left">division</td><td style="text-align: left"><code>7/3</code></td><td style="text-align: left">15,16</td></tr>
+<tr><td style="text-align: left">%</td><td style="text-align: left">modular</td><td style="text-align: left"><code>5%2</code></td><td style="text-align: left">15,16</td></tr>
+<tr><td style="text-align: left">+</td><td style="text-align: left">addiction</td><td style="text-align: left"><code>1+2</code></td><td style="text-align: left">13,14</td></tr>
+<tr><td style="text-align: left">-</td><td style="text-align: left">subtract or negative value</td><td style="text-align: left"><code>1-2</code> <code>-2</code></td><td style="text-align: left">19 (prefix) 13,14 (infix)</td></tr>
+<tr><td style="text-align: left">&gt;</td><td style="text-align: left">greater than</td><td style="text-align: left"><code>5&gt;4</code></td><td style="text-align: left">11,12</td></tr>
+<tr><td style="text-align: left">&gt;=</td><td style="text-align: left">greater than or equal to</td><td style="text-align: left"><code>4&gt;=3</code></td><td style="text-align: left">11,12</td></tr>
+<tr><td style="text-align: left">&lt;</td><td style="text-align: left">less than</td><td style="text-align: left"><code>2&lt;6</code></td><td style="text-align: left">11,12</td></tr>
+<tr><td style="text-align: left">&lt;=</td><td style="text-align: left">less than or equal to</td><td style="text-align: left"><code>5&lt;=5</code></td><td style="text-align: left">11,12</td></tr>
+<tr><td style="text-align: left">==</td><td style="text-align: left">equal to</td><td style="text-align: left"><code>3==3</code></td><td style="text-align: left">11,12</td></tr>
+<tr><td style="text-align: left">is</td><td style="text-align: left">compare reference</td><td style="text-align: left"><code>{} is []</code></td><td style="text-align: left">11,12</td></tr>
+<tr><td style="text-align: left">&lt;&gt;</td><td style="text-align: left">not equal to</td><td style="text-align: left"><code>5&lt;&gt;4</code></td><td style="text-align: left">11,12</td></tr>
+<tr><td style="text-align: left">and</td><td style="text-align: left">logic and</td><td style="text-align: left"><code>true and false</code></td><td style="text-align: left">9, 10</td></tr>
+<tr><td style="text-align: left">or</td><td style="text-align: left">logic or</td><td style="text-align: left"><code>true or false</code></td><td style="text-align: left">7,8</td></tr>
+<tr><td style="text-align: left">..</td><td style="text-align: left">range</td><td style="text-align: left"><code>1..10</code></td><td style="text-align: left">5,6</td></tr>
+<tr><td style="text-align: left">,</td><td style="text-align: left">create a tuple</td><td style="text-align: left"><code>1,2,3</code></td><td style="text-align: left">1,2</td></tr>
+<tr><td style="text-align: left">=</td><td style="text-align: left">assign value to variable</td><td style="text-align: left"><code>a=5</code></td><td style="text-align: left">4,3</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="comment"><a class="header" href="#comment">Comment</a></h1>
+<p>Comment starts with <code>--</code> and lasts until the end of current line.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+Comment:<br />
+\-\- [^\n]*</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="expressions"><a class="header" href="#expressions">Expressions</a></h1>
+<p>All expressions in diatom has a return value.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+Expression:<br />
+BlockExpression<br />
+| CaseExpression<br />
+| ConstantExpression<br />
+| IfExpression<br />
+| LambdaExpression<br />
+| OperatorExpression<br />
+| RequireExpression</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="constant-values"><a class="header" href="#constant-values">Constant values</a></h1>
+<p>Constant values or built in data structures. Diatom has <code>dictionary</code>, <code>set</code>, <code>tuple</code> and <code>list</code> as built in data structures.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+ConstantExpression:<br />
+<code>&lt;number&gt;</code> | <code>&lt;string&gt;</code> | true | false | \( \)<br />
+| \{ <code>&lt;expression&gt;</code>* }<br />
+| \{ : \} | \{ (<code>&lt;expression&gt;</code>:<code>&lt;expression&gt;</code>)* \}<br />
+| \[ (<code>&lt;expression&gt;</code>)* \]<br />
+| <code>&lt;identifier&gt;</code></p>
+</blockquote>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<pre><code class="language-diatom">0x123 -- numerical literal
+
+&quot;abc&quot; -- string literal
+
+true false -- boolean value
+
+() -- unit type value
+println$(())
+
+-- list
+println$([1, 2, 3], [])
+
+-- Table
+println$({key1 = 1, key2 = 'key'}, {})
+
+-- tuple (Must contains at least two elements)
+t1 = (1, 3, '?')
+t2 = (1.2, (4, 5)) -- use parentheses for precedence
+println$(t1, t2)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="operator-expressions"><a class="header" href="#operator-expressions">Operator Expressions</a></h1>
+<p>For operators and precedences, see <a href="grammar/exprs/../Tokens.html"><em>Operators</em></a>.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+OperatorExpression:<br />
+<code>&lt;prefix&gt;</code> <code>&lt;expression&gt;</code><br />
+| <code>&lt;expression&gt;</code> <code>&lt;infix&gt;</code> <code>&lt;expression&gt;</code><br />
+| <code>&lt;expression&gt;</code> <code>&lt;postfix&gt;</code></p>
+</blockquote>
+<h2 id="examples-1"><a class="header" href="#examples-1">Examples</a></h2>
+<pre><code class="language-diatom">a = 12345
+
+println$(
+    a // 3,
+    a &gt; 12344,
+    a + 5,
+    a ** 4,
+    a - -2,
+    a.float$(),
+    a / Float::INF
+)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="if-expression"><a class="header" href="#if-expression">If Expression</a></h1>
+<p>Condition code execution.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+IfExpression:<br />
+if <code>&lt;expression&gt;</code> then (<code>&lt;statement&gt;</code>)*<br />
+(elsif <code>&lt;expression&gt;</code> then (<code>&lt;statement&gt;</code>)*)*<br />
+end</p>
+</blockquote>
+<h2 id="examples-2"><a class="header" href="#examples-2">Examples</a></h2>
+<pre><code class="language-diatom">def test x =
+    if x &gt; 0 then
+        println$('positive')
+    elsif x == 0 then 
+        println$('zero')
+    else
+        println$('negative')
+    end
+end
+
+test$(1)
+test$(0)
+test$(-1)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="block-expression"><a class="header" href="#block-expression">Block Expression</a></h1>
+<p>Multiple statements can be grouped as a block. A block also has its own scope.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+BlockExpression:<br />
+begin ( <code>&lt;statement&gt;</code> )* end</p>
+</blockquote>
+<h2 id="examples-3"><a class="header" href="#examples-3">Examples</a></h2>
+<pre><code class="language-diatom">begin
+    a = 1
+    if a &gt; 0 then
+        return 0
+    else 
+        return 1
+    end
+end
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lambda-expression"><a class="header" href="#lambda-expression">Lambda Expression</a></h1>
+<p>Lambda expression is used as an anonymous function.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+LambdaExpression:<br />
+fn ( <code>&lt;identifier&gt;</code> )* = <code>&lt;expression&gt;</code></p>
+</blockquote>
+<p>Examples:</p>
+<pre><code class="language-diatom">-- lambda takes a single expression
+add3 = 
+    fn a b c = a + b + c
+println$( add3$(1, 2, 3) )
+
+-- To use multiple expression/statements
+-- Group them in a block expression
+(fn x = begin
+    loop 
+        if x == 0 then
+            break
+        else 
+            x = x//2
+        end
+    end
+    println$('loop finished')
+end) $(Int::MAX) -- Directly call lambda
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="require-expression-not-implemented"><a class="header" href="#require-expression-not-implemented">Require Expression (Not Implemented)</a></h1>
+<p>Diatom allows to import another file with require expression. This expression will return a module contains all variables after executing that file. This expression does not introduce any variables to global scope.</p>
+<blockquote>
+<p><strong>Syntax</strong>
+RequireExpression:<br />
+require <code>&lt;string literal&gt;</code></p>
+</blockquote>
+<p>Note that the string literal must be in <code>a.b.c</code> or <code>a</code> form. There may not be characters except <code>[a-zA-Z0-9_\\-\\.]</code>.</p>
+<h2 id="examples-4"><a class="header" href="#examples-4">Examples</a></h2>
+<pre><code class="language-diatom">util = require &quot;myModule.util&quot;
+lib = require &quot;lib&quot;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="statements"><a class="header" href="#statements">Statements</a></h1>
+<p>Statement in diatom always return <code>()</code> (aka unit type).</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+Expression<br />
+| DataStatement<br />
+| FunctionStatement<br />
+| LoopStatement<br />
+| FlowStatement</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="loop-statement"><a class="header" href="#loop-statement">Loop Statement</a></h1>
+<p>There are three types of loops in diatom:</p>
+<ul>
+<li><code>loop</code>: infinite loop</li>
+<li><code>until</code>: loop until a break condition is met</li>
+<li><code>for</code>: loop through an Iterator</li>
+</ul>
+<blockquote>
+<p><strong>Syntax</strong><br />
+LoopStatement:<br />
+loop <code>&lt;statement&gt;</code>* end<br />
+| until <code>&lt;expression&gt;</code> do <code>&lt;statement&gt;</code>* end<br />
+| for <code>&lt;expression&gt;</code> in <code>&lt;expression&gt;</code> do<br />
+<code>&lt;statement&gt;</code>*<br />
+end</p>
+</blockquote>
+<h2 id="examples-5"><a class="header" href="#examples-5">Examples</a></h2>
+<pre><code class="language-diatom">a = 0
+loop 
+    if a &gt; 5 then
+        break
+    else 
+        a = a + 1
+    end
+end
+println$(a)
+
+a = 0
+until a &gt; 5 do
+    a = a + 1
+end
+println$(a)
+
+a = 0
+for _ in 0..6 do
+    a = a + 1
+end
+println$(a)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="function-statement"><a class="header" href="#function-statement">Function Statement</a></h1>
+<p>Function statement declares a function and bind the name to that function in current scope.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+FunctionStatement:<br />
+def <code>&lt;identifier&gt;``&lt;identifier&gt;</code>* =<br />
+<code>&lt;statement&gt;</code>*<br />
+end</p>
+</blockquote>
+<h2 id="examples-6"><a class="header" href="#examples-6">Examples</a></h2>
+<pre><code class="language-diatom">def add3 a b c =
+    a + b + c 
+end
+
+println$( add3$(1, 2, 3) )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="flow-control-statement"><a class="header" href="#flow-control-statement">Flow Control Statement</a></h1>
+<p>These statement alters execution flow in a function or a lambda expression.</p>
+<blockquote>
+<p><strong>Syntax</strong><br />
+FlowStatement:<br />
+break<br />
+| continue<br />
+| return <code>&lt;expression&gt;</code>?</p>
+</blockquote>
+<h2 id="examples-7"><a class="header" href="#examples-7">Examples</a></h2>
+<pre><code class="language-diatom">def f a = 
+    if a &gt; 3 then
+        return true -- return a value
+    end
+    return -- Return nothing (Unit)
+end
+
+println$( f$(5), f$(-1) )
+
+for i in 1..10 do
+    if i &lt; 5 then
+        print$(i, '')
+        continue
+    else 
+        println$('Break: i =', i)
+        break
+    end
+end
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="table--meta-table"><a class="header" href="#table--meta-table">Table &amp; Meta Table</a></h1>
+<p>This chapter is about syntax related to table and meta table.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="member-resolution"><a class="header" href="#member-resolution">Member Resolution</a></h1>
+<p>Operator <code>.</code> and <code>::</code> are used to access member of a table.<br />
+Diatom interpreter will looks up table entries first, if failed then it will try to look up the table's meta table entries.</p>
+<pre><code class="language-diatom">meta_table = {meta_key = 2}
+-- Create a table with meta table
+table = {key1 = 0, key2 = 1} &lt;- meta_table
+
+println$('table.key1 =', table.key1)
+println$('table.meta_key =', table.meta_key)
+</code></pre>
+<p>However, assign to a table will <strong>NOT</strong> be resolved to meta table. In which case will create a new key inside this table.</p>
+<pre><code class="language-diatom">meta_table = {meta_key = 2}
+-- Create a table with meta table
+table = {key1 = 0, key2 = 1} &lt;- meta_table
+
+table.meta_key = 3
+
+println$('table.meta_key =', table.meta_key)
+println$('meta_table.meta_key =', meta_table.meta_key)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="meta-table"><a class="header" href="#meta-table">Meta Table</a></h1>
+<p>A meta table is just a normal table can contains any keys.</p>
+<p>Meta table is used to abstract a common behavior among multiple tables. It can <strong>ONLY</strong> be set at <strong>the creation of a table</strong>. After that you can not set a new meta table or get current meta table out.</p>
+<p>Modify meta table from a table is also limited due to assign to table keys will not be resolved to meta table.</p>
+<p>This example will <strong>NOT</strong> work.</p>
+<pre><code class="language-diatom">table = {}
+
+meta = {
+    my_method = 
+        fn x = x + 1
+}
+
+table &lt;- meta
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="method-call"><a class="header" href="#method-call">Method Call</a></h1>
+<p>If a table's entry or its meta table's entry is a closure, it is possible to call this closure as a <strong>method</strong> or <strong>member function</strong>. </p>
+<p>A method will implicitly pass the caller itself as the first parameter.</p>
+<pre><code class="language-diatom">def my_add self x =
+    self.value + x
+end
+
+MyInt = { 
+    my_add = my_add
+}
+
+my_int = { value = 1, my_add2 = my_add } &lt;- MyInt
+println$( my_int.my_add$(10) )
+println$( my_int.my_add2$(10) )
+</code></pre>
+<p>Sometimes you may want to call a static method by not passing the caller, in which case you can use <code>::</code> operator instead of <code>.</code>. It is also recommended to use static value such as <code>Int::MAX</code> with <code>::</code> instead of <code>Int.MAX</code>.</p>
+<pre><code class="language-diatom">def my_add self x =
+    self.value + x
+end
+
+MyInt = { 
+    my_add = my_add
+}
+
+my_int = { value = 1, my_add2 = my_add } &lt;- MyInt
+println$( MyInt::my_add$( my_int, 10 ) )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="names"><a class="header" href="#names">Names</a></h1>
+<p>This chapter is about diatom's namespace and name resolution.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="scope"><a class="header" href="#scope">Scope</a></h1>
+<p>Diatom use lexical scope. That means all names are resolved according lexical context.</p>
+<h2 id="variable-declaration"><a class="header" href="#variable-declaration">Variable Declaration</a></h2>
+<p>Diatom does not require variable to be declared before using. Variable is automatically declared the first time it is assigned with a value.</p>
+<h2 id="variable-shadowing"><a class="header" href="#variable-shadowing">Variable Shadowing</a></h2>
+<p>Diatom disallows local variable to shadow outside ones. Names will always be resolved to outside ones if available. This is also applied to function parameters. They must not be the same name as a outside variable.</p>
+<p>For example,</p>
+<pre><code class="language-diatom">a = 1
+def f x =
+    a = x
+end
+f$(2)
+
+println$('a =', a)
+</code></pre>
+<p><code>a</code> will have value <code>2</code> after execution.</p>
+<h2 id="local-scope"><a class="header" href="#local-scope">Local Scope</a></h2>
+<p>The following grammars enable local scope:</p>
+<ul>
+<li>Block: <code>begin</code> ... <code>end</code></li>
+<li>Function: <code>def</code> ... <code>end</code></li>
+<li>Lambda: <code>fn</code></li>
+<li>Loop/For: <code>loop</code> ... <code>end</code>, <code>for</code> ... <code>end</code>, <code>until</code> .. <code>do</code> ... <code>end</code></li>
+<li>If: <code>if</code> .. <code>then</code> ... <code>else</code> ... <code>end</code></li>
+</ul>
+<p>Variable declared in local scope is not available in outside scopes.</p>
+<p>The following code will <strong>NOT</strong> work.</p>
+<pre><code class="language-diatom">begin
+    a = 10
+end
+println$(a)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="binding-and-closure"><a class="header" href="#binding-and-closure">Binding and Closure</a></h1>
+<h2 id="assignment-rules"><a class="header" href="#assignment-rules">Assignment Rules</a></h2>
+<p>All <strong>primitive types</strong> in diatom are unboxed and will be <strong>passed by value</strong>. This includes</p>
+<ul>
+<li>Unit</li>
+<li>Int</li>
+<li>Float</li>
+<li>Bool</li>
+<li>String</li>
+</ul>
+<pre><code class="language-diatom">i = 1
+alias = i
+alias = 2
+
+println$('i =', i)
+println$('alias =', alias)
+</code></pre>
+<p><strong>Lists, tuples and tables</strong> are stored in heap. Thus these value shall be <strong>passed by reference</strong>. External functions and closures also follow this rule.</p>
+<pre><code class="language-diatom">l = [1, 2]
+alias = l
+
+alias.append$(3)
+
+println$('l =', l)
+println$('alias =', alias)
+</code></pre>
+<h2 id="closure"><a class="header" href="#closure">Closure</a></h2>
+<p>Closure may capture variables which is not by value but directly aliases the variable. The captures are still effective even if variables go out of scope.</p>
+<pre><code class="language-diatom">-- declare variable x1 &amp; x2
+x1 = () x2 = ()
+f = 
+    fn = begin
+        a = 1
+        -- x1 captures `a`
+        x1 = 
+            fn = a
+        -- x2 also captures `a`
+        x2 = 
+            fn x = begin 
+                a = x
+            end
+    end
+-- initialize x1 &amp; x2 
+f$()
+
+-- modify `a` (decalred in `f`) which has
+-- already go out of scope via `x2`
+x2$(10)
+
+-- `a` captured by x1 is also modified
+println$(x1$())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="module-unstable-feature"><a class="header" href="#module-unstable-feature">Module (Unstable Feature)</a></h1>
+<p>Diatom can load external diatom source code files as modules.</p>
+<h2 id="search-path"><a class="header" href="#search-path">Search Path</a></h2>
+<p>Search path is a set of paths where diatom compiler looking for possible modules. There are several ways to add search path.</p>
+<ul>
+<li>Relative path: When parsing a file, the file's directory is automatically added to search path and takes the highest priority.</li>
+<li>Other search path: Search path can also be specified by host.</li>
+<li>Console: Diatom Console will add current work directory to search path.</li>
+</ul>
+<h2 id="resolve-rule"><a class="header" href="#resolve-rule">Resolve Rule</a></h2>
+<p>Module string like &quot;a.b.c&quot; will be resolved to <code>&lt;search path&gt;/a/b/c.dm</code> or <code>&lt;search path&gt;/a/b/c/mod.dm</code>. Diatom will always search module according to priority and immediately return when the first module matched is found.</p>
+<p>Diatom will only execute a module once and use cached value when the same module is loaded.</p>
+<h2 id="access-module-members"><a class="header" href="#access-module-members">Access Module Members</a></h2>
+<p>Require expression will return a module. All variables declared in the module file will be a member of the module and be accessed via <code>.</code> operator.</p>
+<pre><code class="language-diatom">-- lib.dm
+version = &quot;0.1.1&quot;
+
+def sum (x y z) =
+    x + y + z
+end
+
+-- main.dm
+lib = require &quot;lib&quot;
+lib.version
+lib.sum$( 1 2 3 )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="standard-library"><a class="header" href="#standard-library">Standard Library</a></h1>
+<p>This part is about diatom's standard library.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="built-in-methods"><a class="header" href="#built-in-methods">Built-in Methods</a></h1>
+<p>Built-in methods that are implemented by the interpreter.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="println"><a class="header" href="#println">println</a></h1>
+<p>Print anything to output buffer (usually is managed by host program). It may accepts <strong>any amount</strong> and <strong>any kind of parameters</strong>. Will <strong>NOT</strong> run into infinite loop if data to be printed is cycled.</p>
+<p>If output buffer can not be written (such as tcp stream is closed), it will <strong>panic</strong>.</p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-diatom">table = { ref = () }
+table.ref = table
+
+println(table, 1, &quot;asm&quot;, false, 1.234, ())
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="print"><a class="header" href="#print">print</a></h1>
+<p>Same as <code>println</code> but does not print a <code>new-line</code> character at the end.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="assert"><a class="header" href="#assert">assert</a></h1>
+<p>Assert an expression. </p>
+<p>Accept a single <strong>bool</strong> as argument. If the value is false then it will <strong>panic</strong>.</p>
+<h4 id="example-1"><a class="header" href="#example-1">Example</a></h4>
+<pre><code class="language-diatom">a = (1..).take(6).collect()
+assert(a.len() == 6)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="panic"><a class="header" href="#panic">panic</a></h1>
+<p>Immediately panic. Accepts nothing or a string as its argument.</p>
+<h4 id="example-2"><a class="header" href="#example-2">Example</a></h4>
+<pre><code class="language-diatom">painc()
+</code></pre>
+<pre><code class="language-diatom">painc('look at me')
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unreachable"><a class="header" href="#unreachable">unreachable</a></h1>
+<p>Cause panic if executed. Useful to mark unreachable codes.</p>
+<pre><code class="language-diatom">def my_func =
+    if false then
+        unreachable()
+    end
+end
+
+my_func()
+println('success')
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="todo"><a class="header" href="#todo">todo</a></h1>
+<p>Cause panic if executed. Useful to mark something not completed yet.</p>
+<pre><code class="language-diatom">def my_func =
+    todo()
+end
+
+my_func()
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unit-primitive-type"><a class="header" href="#unit-primitive-type">Unit (primitive type)</a></h1>
+<p>A tuple with 0 items, has only one possible value <code>()</code>. This value is implicitly returned if no return value is provided.</p>
+<h3 id="type"><a class="header" href="#type">Type</a></h3>
+<pre><code class="language-haskell">() :: ()
+</code></pre>
+<h3 id="examples-8"><a class="header" href="#examples-8">Examples</a></h3>
+<pre><code class="language-diatom">def ret_unit = end
+
+println$( ret_unit$() )
+
+value = begin
+    -- statement always return ()
+    loop 
+        break
+    end
+end
+
+println$(value)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="int-primitive-type"><a class="header" href="#int-primitive-type">Int (primitive type)</a></h1>
+<p>An platform independent 64-bit signed integer type, guaranteed to be <strong>wrapped</strong> if <strong>overflow happens</strong>.</p>
+<h3 id="meta-table-1"><a class="header" href="#meta-table-1">Meta table</a></h3>
+<p><code>Int</code> type's meta table is stored in variable named <code>Int</code>.</p>
+<h3 id="examples-9"><a class="header" href="#examples-9">Examples</a></h3>
+<pre><code class="language-diatom">println$( Int::MAX )
+println$( Int::abs$(-10) )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="intmax"><a class="header" href="#intmax">Int::MAX</a></h1>
+<p>Maximum possible value for <code>Int</code> type.</p>
+<h3 id="type-1"><a class="header" href="#type-1">Type</a></h3>
+<pre><code class="language-haskell">MAX :: Int
+</code></pre>
+<h3 id="examples-10"><a class="header" href="#examples-10">Examples</a></h3>
+<pre><code class="language-diatom">println$( Int::MAX )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="intmin"><a class="header" href="#intmin">Int::MIN</a></h1>
+<p>Minimum possible value for <code>Int</code> type.</p>
+<h3 id="type-2"><a class="header" href="#type-2">Type</a></h3>
+<pre><code class="language-haskell">MIN :: Int
+</code></pre>
+<h3 id="examples-11"><a class="header" href="#examples-11">Examples</a></h3>
+<pre><code class="language-diatom">println$( Int::MIN )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="intabs"><a class="header" href="#intabs">Int::abs</a></h1>
+<p>Calculate absolute value of an integer.<br />
+Note that absolute value of <code>Int::MIN</code> will always cause an <strong>overflow</strong> which will return <code>Int::MIN</code>.</p>
+<h3 id="type-3"><a class="header" href="#type-3">Type</a></h3>
+<pre><code class="language-haskell">abs :: Int -&gt; Int
+</code></pre>
+<h3 id="examples-12"><a class="header" href="#examples-12">Examples</a></h3>
+<pre><code class="language-diatom">println$( (-10).abs$() )
+println$( Int::MIN.abs$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="intfloat"><a class="header" href="#intfloat">Int::float</a></h1>
+<p>Convert this integer to a <code>Float</code> type.</p>
+<h3 id="type-4"><a class="header" href="#type-4">Type</a></h3>
+<pre><code class="language-haskell">float :: Int -&gt; Float
+</code></pre>
+<h3 id="examples-13"><a class="header" href="#examples-13">Examples</a></h3>
+<pre><code class="language-diatom">println$( 100.float$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="float-primitive-type"><a class="header" href="#float-primitive-type">Float (primitive type)</a></h1>
+<p>An platform independent 64-bit float point type.</p>
+<h3 id="meta-table-2"><a class="header" href="#meta-table-2">Meta table</a></h3>
+<p><code>Float</code> type's meta table is stored in variable named <code>Float</code>.</p>
+<h3 id="examples-14"><a class="header" href="#examples-14">Examples</a></h3>
+<pre><code class="language-diatom">println$( Float::INF )
+println$( Float::abs$(-10.0) )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatmax"><a class="header" href="#floatmax">Float::MAX</a></h1>
+<p>Maximum possible value for a <code>Float</code>.</p>
+<h3 id="type-5"><a class="header" href="#type-5">Type</a></h3>
+<pre><code class="language-haskell">MAX :: Float
+</code></pre>
+<h3 id="examples-15"><a class="header" href="#examples-15">Examples</a></h3>
+<pre><code class="language-diatom">println$( Float::MAX )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatmin"><a class="header" href="#floatmin">Float::MIN</a></h1>
+<p>Minimum possible value for a <code>Float</code>.</p>
+<h3 id="type-6"><a class="header" href="#type-6">Type</a></h3>
+<pre><code class="language-haskell">MIN :: Float
+</code></pre>
+<h3 id="examples-16"><a class="header" href="#examples-16">Examples</a></h3>
+<pre><code class="language-diatom">println$( Float::MIN )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatinf"><a class="header" href="#floatinf">Float::INF</a></h1>
+<p>Infinity (∞).</p>
+<h3 id="type-7"><a class="header" href="#type-7">Type</a></h3>
+<pre><code class="language-haskell">INF :: Float
+</code></pre>
+<h3 id="examples-17"><a class="header" href="#examples-17">Examples</a></h3>
+<pre><code class="language-diatom">println$( Float::INF )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatneg_inf"><a class="header" href="#floatneg_inf">Float::NEG_INF</a></h1>
+<p>Negative infinity (−∞).</p>
+<h3 id="type-8"><a class="header" href="#type-8">Type</a></h3>
+<pre><code class="language-haskell">NEG_INF :: Float
+</code></pre>
+<h3 id="examples-18"><a class="header" href="#examples-18">Examples</a></h3>
+<pre><code class="language-diatom">println$( Float::NEG_INF )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatnan"><a class="header" href="#floatnan">Float::NAN</a></h1>
+<p>Not a Number (NaN).</p>
+<p>The value of this depends on Rust version and platform.</p>
+<blockquote>
+<p><strong><a href="https://doc.rust-lang.org/std/primitive.f64.html#associatedconstant.NAN">Description from Rust's std</a></strong><br />
+Note that IEEE 754 doesn’t define just a single NaN value; a plethora of bit patterns are considered to be NaN. Furthermore, the standard makes a difference between a “signaling” and a “quiet” NaN, and allows inspecting its “payload” (the unspecified bits in the bit pattern). This constant isn’t guaranteed to equal to any specific NaN bitpattern, and the stability of its representation over Rust versions and target platforms isn’t guaranteed.</p>
+</blockquote>
+<h3 id="type-9"><a class="header" href="#type-9">Type</a></h3>
+<pre><code class="language-haskell">NAN :: Float
+</code></pre>
+<h3 id="examples-19"><a class="header" href="#examples-19">Examples</a></h3>
+<pre><code class="language-diatom">println$( Float::NAN )
+println$( Float::NAN.is_nan$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatfloor"><a class="header" href="#floatfloor">Float::floor</a></h1>
+<p>Calculate the largest integer less than or equal to a <code>Float</code>.</p>
+<h3 id="type-10"><a class="header" href="#type-10">Type</a></h3>
+<pre><code class="language-haskell">floor :: Float -&gt; Float
+</code></pre>
+<h3 id="examples-20"><a class="header" href="#examples-20">Examples</a></h3>
+<pre><code class="language-diatom">println$( (-1.23).floor$() )
+println$( 1.23.floor$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatceil"><a class="header" href="#floatceil">Float::ceil</a></h1>
+<p>Calculate the smallest integer greater than or equal to a <code>Float</code>.</p>
+<h3 id="type-11"><a class="header" href="#type-11">Type</a></h3>
+<pre><code class="language-haskell">ceil :: Float -&gt; Float
+</code></pre>
+<h3 id="examples-21"><a class="header" href="#examples-21">Examples</a></h3>
+<pre><code class="language-diatom">println$( (-1.23).ceil$() )
+println$( 1.23.ceil$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatround"><a class="header" href="#floatround">Float::round</a></h1>
+<p>Calculate the nearest integer to self. Round half-way cases away from 0.0.</p>
+<h3 id="type-12"><a class="header" href="#type-12">Type</a></h3>
+<pre><code class="language-haskell">round :: Float -&gt; Float
+</code></pre>
+<h3 id="examples-22"><a class="header" href="#examples-22">Examples</a></h3>
+<pre><code class="language-diatom">println$( (-1.23).round$() )
+println$( 1.23.round$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatint"><a class="header" href="#floatint">Float::int</a></h1>
+<p>Cast a <code>Float</code> to <code>Int</code> type by truncating.</p>
+<h3 id="type-13"><a class="header" href="#type-13">Type</a></h3>
+<pre><code class="language-haskell">int :: Float -&gt; Int
+</code></pre>
+<h3 id="examples-23"><a class="header" href="#examples-23">Examples</a></h3>
+<pre><code class="language-diatom">println$( 1.7.int$() )
+println$( 1.2.int$() )
+println$( (-1.7).int$() )
+println$( (-1.2).int$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatabs"><a class="header" href="#floatabs">Float::abs</a></h1>
+<p>Calculate absolute value of a <code>Float</code>.</p>
+<h3 id="type-14"><a class="header" href="#type-14">Type</a></h3>
+<pre><code class="language-haskell">abs :: Float -&gt; Float
+</code></pre>
+<h3 id="examples-24"><a class="header" href="#examples-24">Examples</a></h3>
+<pre><code class="language-diatom">println$( (-1.23).abs$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatis_nan"><a class="header" href="#floatis_nan">Float::is_nan</a></h1>
+<p>Test if a <code>Float</code> is NaN.</p>
+<h3 id="type-15"><a class="header" href="#type-15">Type</a></h3>
+<pre><code class="language-haskell">is_nan :: Float -&gt; Bool
+</code></pre>
+<h3 id="examples-25"><a class="header" href="#examples-25">Examples</a></h3>
+<pre><code class="language-diatom">println$( 0.1235.is_nan$() )
+println$( Float::NAN.is_nan$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="floatis_inf"><a class="header" href="#floatis_inf">Float::is_inf</a></h1>
+<p>Test if a <code>Float</code> is positive or negative infinity.</p>
+<h3 id="type-16"><a class="header" href="#type-16">Type</a></h3>
+<pre><code class="language-haskell">is_inf :: Float -&gt; Bool
+</code></pre>
+<h3 id="examples-26"><a class="header" href="#examples-26">Examples</a></h3>
+<pre><code class="language-diatom">println$( Float::INF.is_inf$() )
+println$( Float::NEG_INF.is_inf$() )
+println$( 1.2345.is_inf$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bool-primitive-type"><a class="header" href="#bool-primitive-type">Bool (primitive type)</a></h1>
+<p>Boolean value, can be either <code>true</code> or <code>false</code>.
+<code>if</code> and <code>until</code> statement requires condition must return a bool value.</p>
+<h3 id="type-17"><a class="header" href="#type-17">Type</a></h3>
+<pre><code class="language-haskell">Bool :: Bool
+</code></pre>
+<h3 id="examples-27"><a class="header" href="#examples-27">Examples</a></h3>
+<p>This example will <strong>NOT</strong> work.</p>
+<pre><code class="language-diatom">if 0 then
+    println$(' 0 is not false ')
+end
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuple"><a class="header" href="#tuple">Tuple</a></h1>
+<p>A tuple of items, useful in multiple return or anonymous tables.<br />
+Access tuple items via <code>.</code> operator and a <code>Int</code> literal.</p>
+<h3 id="examples-28"><a class="header" href="#examples-28">Examples</a></h3>
+<pre><code class="language-diatom">def multi_ret x y =
+    (x, y)
+end
+
+tuple = multi_ret$(1, 3)
+println$( tuple )
+println$( tuple.0 )
+
+tuple.0 = 'changed'
+println$( tuple.0 )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="list"><a class="header" href="#list">List</a></h1>
+<p>A dynamic array that can contains any items.</p>
+<pre><code class="language-diatom">-- Create an empty list
+list = []
+println$(list)
+
+-- List with a single item
+list = [1]
+println$(list)
+
+-- List with multiple items
+list = [1, 'string', false]
+println$(list)
+</code></pre>
+<h3 id="type-18"><a class="header" href="#type-18">Type</a></h3>
+<pre><code class="language-haskell">List :: [a]
+</code></pre>
+<h3 id="meta-table-3"><a class="header" href="#meta-table-3">Meta Table</a></h3>
+<p><code>List</code> type's meta table is stored in variable named <code>List</code>.</p>
+<pre><code class="language-diatom">l = [1, 2, 3]
+List::append$(l, 4)
+println$(l)
+</code></pre>
+<h3 id="index"><a class="header" href="#index">Index</a></h3>
+<p>List may by index by <code>Int</code> type. Both <strong>postive</strong> and <strong>negative</strong> will work.</p>
+<pre><code class="language-diatom">l = [1, 2, 3, 4]
+println$( l$[0], l$[3] )
+println$( l$[-4], l$[-1] )
+</code></pre>
+<h3 id="iterate"><a class="header" href="#iterate">Iterate</a></h3>
+<p>List can be used in <code>for</code> loop or as an iterator.</p>
+<pre><code class="language-diatom">-- for loop
+for i in [1, 2, 3] do
+    print$(i, '')
+end
+println$('\n')
+
+-- get an iterator
+list = [1, 2, 3]
+iterator = list.iter$()
+println$( iterator.__next$() )
+println$( iterator.__next$() )
+println$( iterator.__next$() )
+println$( iterator.__next$() is Option::None )
+println$(list)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="listlen"><a class="header" href="#listlen">List::len</a></h1>
+<p>Return the length of a list.</p>
+<h3 id="type-19"><a class="header" href="#type-19">Type</a></h3>
+<pre><code class="language-haskell">len :: [a] -&gt; Int
+</code></pre>
+<h3 id="examples-29"><a class="header" href="#examples-29">Examples</a></h3>
+<pre><code class="language-diatom">l = [1, 2, 3]
+println$( l.len$() )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="listclear"><a class="header" href="#listclear">List::clear</a></h1>
+<p>Remove all items from a list and return self.</p>
+<h3 id="type-20"><a class="header" href="#type-20">Type</a></h3>
+<pre><code class="language-haskell">clear :: [a] -&gt; [a]
+</code></pre>
+<h3 id="examples-30"><a class="header" href="#examples-30">Examples</a></h3>
+<pre><code class="language-diatom">l = [1, 2, 3].clear$()
+println$(l)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="listreverse"><a class="header" href="#listreverse">List::reverse</a></h1>
+<p>Reverse a list and return self.</p>
+<h3 id="type-21"><a class="header" href="#type-21">Type</a></h3>
+<pre><code class="language-haskell">reverse :: [a] -&gt; [a]
+</code></pre>
+<h3 id="examples-31"><a class="header" href="#examples-31">Examples</a></h3>
+<pre><code class="language-diatom">l = [1, 2, 3].reverse$()
+println$(l)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="listappend"><a class="header" href="#listappend">List::append</a></h1>
+<p>Append a new item and return self.</p>
+<h3 id="type-22"><a class="header" href="#type-22">Type</a></h3>
+<pre><code class="language-haskell">append :: [a] -&gt; a -&gt; [a]
+</code></pre>
+<h3 id="examples-32"><a class="header" href="#examples-32">Examples</a></h3>
+<pre><code class="language-diatom">l = [1, 2, 3].append$(4)
+println$(l)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="listinsert"><a class="header" href="#listinsert">List::insert</a></h1>
+<p>Insert an item to a given index.</p>
+<h3 id="type-23"><a class="header" href="#type-23">Type</a></h3>
+<pre><code class="language-haskell">insert :: [a] -&gt; Int -&gt; a -&gt; [a]
+</code></pre>
+<h3 id="examples-33"><a class="header" href="#examples-33">Examples</a></h3>
+<pre><code class="language-diatom">l = [1, 2, 3].insert$(-2, 5)
+println$(l)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="listremove"><a class="header" href="#listremove">List::remove</a></h1>
+<p>Remove an item from given index and return self.</p>
+<h3 id="type-24"><a class="header" href="#type-24">Type</a></h3>
+<pre><code class="language-haskell">remove :: [a] -&gt; Int -&gt; [a]
+</code></pre>
+<h3 id="examples-34"><a class="header" href="#examples-34">Examples</a></h3>
+<pre><code class="language-diatom">l = [1, 2, 3]
+println$( l.remove$(2) )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="listiter"><a class="header" href="#listiter">List::iter</a></h1>
+<p>Get an iterator of this list.</p>
+<h3 id="type-25"><a class="header" href="#type-25">Type</a></h3>
+<pre><code class="language-haskell">iter :: [a] -&gt; Iter a
+</code></pre>
+<h3 id="examples-35"><a class="header" href="#examples-35">Examples</a></h3>
+<pre><code class="language-diatom">iter = [1, 2, 3].iter$()
+println$( iter.__next$().value )
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iter"><a class="header" href="#iter">Iter</a></h1>
+<p>This is standard library's iterator api. Can be set as meta table for any iterator that implements <code>__next</code>, which returns an <code>Option</code>. Access vai variable <code>Iter</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterall"><a class="header" href="#iterall">Iter::all</a></h1>
+<p>Test if all elements satisfy a predict. Stop evaluation after find the first <code>false</code>.</p>
+<h4 id="type-26"><a class="header" href="#type-26">Type</a></h4>
+<pre><code class="language-haskell">all :: Iter a -&gt; (a -&gt; bool) -&gt; bool
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterany"><a class="header" href="#iterany">Iter::any</a></h1>
+<p>Test if any elements satisfied a prediction. Stop evaluation after find the first <code>true</code>.</p>
+<h4 id="type-27"><a class="header" href="#type-27">Type</a></h4>
+<pre><code class="language-haskell">any :: Iter a -&gt; (a -&gt; Bool) -&gt; Bool
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itercollect"><a class="header" href="#itercollect">Iter::collect</a></h1>
+<p>Collect all items into a list.</p>
+<h4 id="type-28"><a class="header" href="#type-28">Type</a></h4>
+<pre><code class="language-haskell">collect :: Iter a -&gt; [a]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itercount"><a class="header" href="#itercount">Iter::count</a></h1>
+<p>Count all elements in an iterator.</p>
+<h4 id="type-29"><a class="header" href="#type-29">Type</a></h4>
+<pre><code class="language-haskell">count :: Iter a -&gt; Int
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itersum"><a class="header" href="#itersum">Iter::sum</a></h1>
+<p>Calculate sum over all elements. If there is no element, 0 is returned.</p>
+<h4 id="type-30"><a class="header" href="#type-30">Type</a></h4>
+<pre><code class="language-haskell">sum :: Iter a -&gt; a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itermax"><a class="header" href="#itermax">Iter::max</a></h1>
+<p>Calculate maximum element of an iterator. Panic if there is no element.</p>
+<h4 id="type-31"><a class="header" href="#type-31">Type</a></h4>
+<pre><code class="language-haskell">max :: Iter a -&gt; a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itermin"><a class="header" href="#itermin">Iter::min</a></h1>
+<p>Calculate minimum element of an iterator. Panic if there is no element.</p>
+<h4 id="type-32"><a class="header" href="#type-32">Type</a></h4>
+<pre><code class="language-haskell">min :: Iter a -&gt; a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterreduce"><a class="header" href="#iterreduce">Iter::reduce</a></h1>
+<p>Reduce all elements by a given function. Panic if there is no element available.</p>
+<h4 id="type-33"><a class="header" href="#type-33">Type</a></h4>
+<pre><code class="language-haskell">reduce :: Iter a -&gt; (a -&gt; a -&gt; a) -&gt; a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterfor_each"><a class="header" href="#iterfor_each">Iter::for_each</a></h1>
+<p>Apply function to every elements.</p>
+<h4 id="type-34"><a class="header" href="#type-34">Type</a></h4>
+<pre><code class="language-haskell">max :: Iter a -&gt; (a -&gt; ()) -&gt; ()
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterfold"><a class="header" href="#iterfold">Iter::fold</a></h1>
+<p>Fold a iterator with initial value and a given function.</p>
+<h4 id="type-35"><a class="header" href="#type-35">Type</a></h4>
+<pre><code class="language-haskell">fold :: Iter a -&gt; b -&gt; (b -&gt; a -&gt; b) -&gt; b
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itermap"><a class="header" href="#itermap">Iter::map</a></h1>
+<p>Map a function over an iterator.</p>
+<h4 id="type-36"><a class="header" href="#type-36">Type</a></h4>
+<pre><code class="language-haskell">map :: Iter a -&gt; (a -&gt; b) -&gt; Iter b
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterfilter"><a class="header" href="#iterfilter">Iter::filter</a></h1>
+<p>Filter an iterator by prediction.</p>
+<h4 id="type-37"><a class="header" href="#type-37">Type</a></h4>
+<pre><code class="language-haskell">filter :: Iter a -&gt; (a -&gt; Bool) -&gt; Iter a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterskip"><a class="header" href="#iterskip">Iter::skip</a></h1>
+<p>Skip the first n elements of an iterator.</p>
+<h4 id="type-38"><a class="header" href="#type-38">Type</a></h4>
+<pre><code class="language-haskell">skip :: Iter a -&gt; Int -&gt; Iter a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itertake"><a class="header" href="#itertake">Iter::take</a></h1>
+<p>Take n elements from iterator.</p>
+<h4 id="type-39"><a class="header" href="#type-39">Type</a></h4>
+<pre><code class="language-haskell">take :: Iter a -&gt; Int -&gt; Iter a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterzip"><a class="header" href="#iterzip">Iter::zip</a></h1>
+<p>Zip two iterators.</p>
+<h4 id="type-40"><a class="header" href="#type-40">Type</a></h4>
+<pre><code class="language-haskell">zip :: Iter a -&gt; Iter b -&gt; Iter (a, b)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterstep_by"><a class="header" href="#iterstep_by">Iter::step_by</a></h1>
+<p>Skip some elements by a fixed step.</p>
+<h4 id="type-41"><a class="header" href="#type-41">Type</a></h4>
+<pre><code class="language-haskell">step_by :: Iter a -&gt; Int -&gt; Iter a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="itertake_until"><a class="header" href="#itertake_until">Iter::take_until</a></h1>
+<p>Take elements until prediction not satisfied.</p>
+<h4 id="type-42"><a class="header" href="#type-42">Type</a></h4>
+<pre><code class="language-haskell">take_until :: Iter a -&gt; (a -&gt; bool) -&gt; Iter a
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterenum"><a class="header" href="#iterenum">Iter::enum</a></h1>
+<p>Enumerate an iterator from <code>0</code>.</p>
+<h4 id="type-43"><a class="header" href="#type-43">Type</a></h4>
+<pre><code class="language-haskell">enum :: Iter a -&gt; Iter (Int, a)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gc"><a class="header" href="#gc">Gc</a></h1>
+<p>Control the garbage collector. Can be accessed via variable <code>Gc</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gccollect"><a class="header" href="#gccollect">Gc::collect</a></h1>
+<p>Immediately start collecting garbage. Accept no arguments.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gcpause"><a class="header" href="#gcpause">Gc::pause</a></h1>
+<p>Pause garbage collector. Accept no arguments.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="gcresume"><a class="header" href="#gcresume">Gc::resume</a></h1>
+<p>Resume garbage collector. Accept no arguments.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

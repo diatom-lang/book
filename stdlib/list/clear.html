@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>List::clear - The Diatom Reference</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Diatom Playground -->
+        <script type="module">
+            import init, {get_version, exec} from "https://diatom-lang.github.io/diatom-playground/pkg/diatom_playground.js";
+            init().then(()=>{});
+            window.exec = exec;
+        </script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../Overview.html">The Diatom Reference</a></li><li class="chapter-item expanded "><a href="../../grammar/Overview.html"><strong aria-hidden="true">1.</strong> Grammar</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../grammar/Tokens.html"><strong aria-hidden="true">1.1.</strong> Tokens</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../grammar/tokens/Identifier.html"><strong aria-hidden="true">1.1.1.</strong> Identifier</a></li><li class="chapter-item "><a href="../../grammar/tokens/Keyword.html"><strong aria-hidden="true">1.1.2.</strong> Keyword</a></li><li class="chapter-item "><a href="../../grammar/tokens/Number.html"><strong aria-hidden="true">1.1.3.</strong> Numeric Literal</a></li><li class="chapter-item "><a href="../../grammar/tokens/String.html"><strong aria-hidden="true">1.1.4.</strong> String Literal</a></li><li class="chapter-item "><a href="../../grammar/tokens/Operator.html"><strong aria-hidden="true">1.1.5.</strong> Operator</a></li><li class="chapter-item "><a href="../../grammar/tokens/Comment.html"><strong aria-hidden="true">1.1.6.</strong> Comment</a></li></ol></li><li class="chapter-item "><a href="../../grammar/Expressions.html"><strong aria-hidden="true">1.2.</strong> Expressions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../grammar/exprs/Constant.html"><strong aria-hidden="true">1.2.1.</strong> Constant Expression</a></li><li class="chapter-item "><a href="../../grammar/exprs/Operator.html"><strong aria-hidden="true">1.2.2.</strong> Operator Expression</a></li><li class="chapter-item "><a href="../../grammar/exprs/If.html"><strong aria-hidden="true">1.2.3.</strong> If Expression</a></li><li class="chapter-item "><a href="../../grammar/exprs/Block.html"><strong aria-hidden="true">1.2.4.</strong> Block Expression</a></li><li class="chapter-item "><a href="../../grammar/exprs/Lambda.html"><strong aria-hidden="true">1.2.5.</strong> Lambda Expression</a></li><li class="chapter-item "><a href="../../grammar/exprs/Require.html"><strong aria-hidden="true">1.2.6.</strong> Require Expression</a></li></ol></li><li class="chapter-item "><a href="../../grammar/Statements.html"><strong aria-hidden="true">1.3.</strong> Statements</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../grammar/stmts/Loop.html"><strong aria-hidden="true">1.3.1.</strong> Loop Statement</a></li><li class="chapter-item "><a href="../../grammar/stmts/Function.html"><strong aria-hidden="true">1.3.2.</strong> Function Statement</a></li><li class="chapter-item "><a href="../../grammar/stmts/Flow.html"><strong aria-hidden="true">1.3.3.</strong> Flow Control Statement</a></li></ol></li><li class="chapter-item "><a href="../../grammar/table/Overview.html"><strong aria-hidden="true">1.4.</strong> Table & Meta Table</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../grammar/table/Member.html"><strong aria-hidden="true">1.4.1.</strong> Member Resolution</a></li><li class="chapter-item "><a href="../../grammar/table/Meta.html"><strong aria-hidden="true">1.4.2.</strong> Meta Table</a></li><li class="chapter-item "><a href="../../grammar/table/Method.html"><strong aria-hidden="true">1.4.3.</strong> Method Call</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../names/Overview.html"><strong aria-hidden="true">2.</strong> Names</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../names/Scope.html"><strong aria-hidden="true">2.1.</strong> Scope</a></li><li class="chapter-item "><a href="../../names/Binding.html"><strong aria-hidden="true">2.2.</strong> Binding and Closure</a></li><li class="chapter-item "><a href="../../names/Module.html"><strong aria-hidden="true">2.3.</strong> Module System</a></li></ol></li><li class="chapter-item expanded "><a href="../../stdlib/Overview.html"><strong aria-hidden="true">3.</strong> Standard Library</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdlib/built-in/Overview.html"><strong aria-hidden="true">3.1.</strong> Built-in Methods</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdlib/built-in/println.html"><strong aria-hidden="true">3.1.1.</strong> println</a></li><li class="chapter-item "><a href="../../stdlib/built-in/print.html"><strong aria-hidden="true">3.1.2.</strong> print</a></li><li class="chapter-item "><a href="../../stdlib/built-in/assert.html"><strong aria-hidden="true">3.1.3.</strong> assert</a></li><li class="chapter-item "><a href="../../stdlib/built-in/panic.html"><strong aria-hidden="true">3.1.4.</strong> panic</a></li><li class="chapter-item "><a href="../../stdlib/built-in/unreachable.html"><strong aria-hidden="true">3.1.5.</strong> unreachable</a></li><li class="chapter-item "><a href="../../stdlib/built-in/todo.html"><strong aria-hidden="true">3.1.6.</strong> todo</a></li></ol></li><li class="chapter-item "><a href="../../stdlib/Unit.html"><strong aria-hidden="true">3.2.</strong> Unit</a></li><li class="chapter-item "><a href="../../stdlib/int/Overview.html"><strong aria-hidden="true">3.3.</strong> Int</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdlib/int/MAX.html"><strong aria-hidden="true">3.3.1.</strong> Int::MAX</a></li><li class="chapter-item "><a href="../../stdlib/int/MIN.html"><strong aria-hidden="true">3.3.2.</strong> Int::MIN</a></li><li class="chapter-item "><a href="../../stdlib/int/abs.html"><strong aria-hidden="true">3.3.3.</strong> Int::abs</a></li><li class="chapter-item "><a href="../../stdlib/int/float.html"><strong aria-hidden="true">3.3.4.</strong> Int::float</a></li></ol></li><li class="chapter-item "><a href="../../stdlib/float/Overview.html"><strong aria-hidden="true">3.4.</strong> Float</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdlib/float/MAX.html"><strong aria-hidden="true">3.4.1.</strong> Float::MAX</a></li><li class="chapter-item "><a href="../../stdlib/float/MIN.html"><strong aria-hidden="true">3.4.2.</strong> Float::MIN</a></li><li class="chapter-item "><a href="../../stdlib/float/INF.html"><strong aria-hidden="true">3.4.3.</strong> Float::INF</a></li><li class="chapter-item "><a href="../../stdlib/float/NEG_INF.html"><strong aria-hidden="true">3.4.4.</strong> Float::NEG_INF</a></li><li class="chapter-item "><a href="../../stdlib/float/NAN.html"><strong aria-hidden="true">3.4.5.</strong> Float::NAN</a></li><li class="chapter-item "><a href="../../stdlib/float/floor.html"><strong aria-hidden="true">3.4.6.</strong> Float::floor</a></li><li class="chapter-item "><a href="../../stdlib/float/ceil.html"><strong aria-hidden="true">3.4.7.</strong> Float::ceil</a></li><li class="chapter-item "><a href="../../stdlib/float/round.html"><strong aria-hidden="true">3.4.8.</strong> Float::round</a></li><li class="chapter-item "><a href="../../stdlib/float/int.html"><strong aria-hidden="true">3.4.9.</strong> Float::int</a></li><li class="chapter-item "><a href="../../stdlib/float/abs.html"><strong aria-hidden="true">3.4.10.</strong> Float::abs</a></li><li class="chapter-item "><a href="../../stdlib/float/is_nan.html"><strong aria-hidden="true">3.4.11.</strong> Float::is_nan</a></li><li class="chapter-item "><a href="../../stdlib/float/is_inf.html"><strong aria-hidden="true">3.4.12.</strong> Float::is_inf</a></li></ol></li><li class="chapter-item "><a href="../../stdlib/Bool.html"><strong aria-hidden="true">3.5.</strong> Bool</a></li><li class="chapter-item "><a href="../../stdlib/Tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li class="chapter-item expanded "><a href="../../stdlib/list/Overview.html"><strong aria-hidden="true">3.7.</strong> List</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdlib/list/len.html"><strong aria-hidden="true">3.7.1.</strong> List::len</a></li><li class="chapter-item expanded "><a href="../../stdlib/list/clear.html" class="active"><strong aria-hidden="true">3.7.2.</strong> List::clear</a></li><li class="chapter-item "><a href="../../stdlib/list/reverse.html"><strong aria-hidden="true">3.7.3.</strong> List::reverse</a></li><li class="chapter-item "><a href="../../stdlib/list/append.html"><strong aria-hidden="true">3.7.4.</strong> List::append</a></li><li class="chapter-item "><a href="../../stdlib/list/insert.html"><strong aria-hidden="true">3.7.5.</strong> List::insert</a></li><li class="chapter-item "><a href="../../stdlib/list/remove.html"><strong aria-hidden="true">3.7.6.</strong> List::remove</a></li><li class="chapter-item "><a href="../../stdlib/list/iter.html"><strong aria-hidden="true">3.7.7.</strong> List::iter</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.8.</strong> String</div></li><li class="chapter-item "><a href="../../stdlib/iter/Overview.html"><strong aria-hidden="true">3.9.</strong> Iter</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdlib/iter/all.html"><strong aria-hidden="true">3.9.1.</strong> Iter::all</a></li><li class="chapter-item "><a href="../../stdlib/iter/any.html"><strong aria-hidden="true">3.9.2.</strong> Iter::any</a></li><li class="chapter-item "><a href="../../stdlib/iter/collect.html"><strong aria-hidden="true">3.9.3.</strong> Iter::collect</a></li><li class="chapter-item "><a href="../../stdlib/iter/count.html"><strong aria-hidden="true">3.9.4.</strong> Iter::count</a></li><li class="chapter-item "><a href="../../stdlib/iter/sum.html"><strong aria-hidden="true">3.9.5.</strong> Iter::sum</a></li><li class="chapter-item "><a href="../../stdlib/iter/max.html"><strong aria-hidden="true">3.9.6.</strong> Iter::max</a></li><li class="chapter-item "><a href="../../stdlib/iter/min.html"><strong aria-hidden="true">3.9.7.</strong> Iter::min</a></li><li class="chapter-item "><a href="../../stdlib/iter/reduce.html"><strong aria-hidden="true">3.9.8.</strong> Iter::reduce</a></li><li class="chapter-item "><a href="../../stdlib/iter/for_each.html"><strong aria-hidden="true">3.9.9.</strong> Iter::for_each</a></li><li class="chapter-item "><a href="../../stdlib/iter/fold.html"><strong aria-hidden="true">3.9.10.</strong> Iter::fold</a></li><li class="chapter-item "><a href="../../stdlib/iter/map.html"><strong aria-hidden="true">3.9.11.</strong> Iter::map</a></li><li class="chapter-item "><a href="../../stdlib/iter/filter.html"><strong aria-hidden="true">3.9.12.</strong> Iter::filter</a></li><li class="chapter-item "><a href="../../stdlib/iter/skip.html"><strong aria-hidden="true">3.9.13.</strong> Iter::skip</a></li><li class="chapter-item "><a href="../../stdlib/iter/take.html"><strong aria-hidden="true">3.9.14.</strong> Iter::take</a></li><li class="chapter-item "><a href="../../stdlib/iter/zip.html"><strong aria-hidden="true">3.9.15.</strong> Iter::zip</a></li><li class="chapter-item "><a href="../../stdlib/iter/step_by.html"><strong aria-hidden="true">3.9.16.</strong> Iter::step_by</a></li><li class="chapter-item "><a href="../../stdlib/iter/take_until.html"><strong aria-hidden="true">3.9.17.</strong> Iter::take_until</a></li><li class="chapter-item "><a href="../../stdlib/iter/enum.html"><strong aria-hidden="true">3.9.18.</strong> Iter::enum</a></li></ol></li><li class="chapter-item "><a href="../../stdlib/gc/Overview.html"><strong aria-hidden="true">3.10.</strong> Gc</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdlib/gc/collect.html"><strong aria-hidden="true">3.10.1.</strong> Gc::collect</a></li><li class="chapter-item "><a href="../../stdlib/gc/pause.html"><strong aria-hidden="true">3.10.2.</strong> Gc::pause</a></li><li class="chapter-item "><a href="../../stdlib/gc/resume.html"><strong aria-hidden="true">3.10.3.</strong> Gc::resume</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Diatom Reference</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/diatom-lang/diatom" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/diatom-lang/reference/edit/master/src/stdlib/list/clear.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="listclear"><a class="header" href="#listclear">List::clear</a></h1>
+<p>Remove all items from a list and return self.</p>
+<h3 id="type"><a class="header" href="#type">Type</a></h3>
+<pre><code class="language-haskell">clear :: [a] -&gt; [a]
+</code></pre>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<pre><code class="language-diatom">l = [1, 2, 3].clear$()
+println$(l)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../stdlib/list/len.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../stdlib/list/reverse.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../stdlib/list/len.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../stdlib/list/reverse.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
